@@ -4,7 +4,8 @@ const { Video } = require("../models/videos.model");
 
 
 const PlaylistSchema = new Schema({
- playlist: [{
+  user: { type: Schema.Types.ObjectId, ref: "User" },
+  playlist: [{
       name: String, 
       list: { 
         type: Array, 

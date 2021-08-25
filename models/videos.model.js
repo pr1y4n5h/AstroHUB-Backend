@@ -1,36 +1,38 @@
 const mongoose = require("mongoose");
-const data = require("../data");
-
-//To create DB entries with Mongoose
-//Step 1 : Mongoose Schema
 
 const { Schema } = mongoose;
 const VideoSchema = new Schema({
-      _id: String,
-      name: String,
-      category: String,
-      description: String,
-      credits: String
-})
+      _id: {
+        type: String,
+        required: "Video id can't be void",
+        unique: true,
+        trim: true,
+      },
 
-//Step 2 : Model creation using schema
+      name: {
+        type: String,
+        required: "Video name can't be void",
+        trim: true,
+      },
+
+      category: {
+        type: String,
+        required: "Category can't be void",
+        trim: true,
+      },
+      
+      description: {
+        type: String,
+        minlength: [100, "Description is too short"]
+    },
+
+      credits: {
+        type: String,
+        required: "Credits can't be void",
+        trim: true,
+      },
+})
 
 const Video = mongoose.model("Video", VideoSchema);
 
 module.exports = {Video};
-
-
-
-
-
-// async function addToProductsCollection() {
-//   try {
-//     data.forEach((video) => {
-//       const newVideo = new Video(video);
-//       const savedVideo = newVideo.save();
-//       console.log(savedVideo);
-//     });
-//   } catch (e) {
-//     console.log("Error is", e);
-//   }
-// }

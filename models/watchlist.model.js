@@ -3,6 +3,7 @@ const { Video } = require("./videos.model");
 const { Schema } = mongoose;
 
 const WatchlistSchema = new Schema({
+  user: { type: Schema.Types.ObjectId, ref: "User" },
   videos: [{ 
     _id: String, 
     name: String, 
