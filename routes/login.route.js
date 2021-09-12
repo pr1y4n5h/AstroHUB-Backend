@@ -6,10 +6,6 @@ var jwt = require("jsonwebtoken");
 
 router
   .route("/")
-  .get(async (req, res) => {
-    res.send("This is a login page");
-  })
-
   .post(async (req, res) => {
     try {
       const { username, password } = req.body;
@@ -25,7 +21,6 @@ router
       if (userData) {
         const isMatched = await bcrypt.compare(password, userData.password);
         if (isMatched) {
-          console.log("From Login", req.user)
           const token = jwt.sign(
             { userId: userData._id },
             process.env.API_SECRET,

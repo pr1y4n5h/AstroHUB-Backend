@@ -1,0 +1,12 @@
+{
+  "files": {
+    "middleware/authenticate.js": [
+      {
+        "id": "73d39447-2611-46e0-b5fb-849b32d01359",
+        "line": 11,
+        "version": 33,
+        "index": 294
+      }
+    ]
+  }
+}

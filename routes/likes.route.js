@@ -30,8 +30,6 @@ router.route("/")
   .get(async (req, res) => {
     try {
       const {userId} = req.user;
-      console.log("From GET Likes 1", userId)
-      console.log("From GET Likes 2", req.user)
       const data = await getLikes(userId);;
       if(data) {
       res.status(200).json({ success: true, likeData: data })}

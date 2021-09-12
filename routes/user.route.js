@@ -3,9 +3,6 @@ const router = express.Router();
 const { User } = require("../models/user.model");
 
 router.route("/")
-.get(async (req, res) => {
-  res.send("This is signup page")
-})
 .post(async (req, res) => {
   const {name, username, email, password} = req.body;
   if(!name || !username || !email || !password) {
